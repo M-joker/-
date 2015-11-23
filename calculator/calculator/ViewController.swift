@@ -9,17 +9,53 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var display: UILabel!
+    
+    var userlslnTheMiddleOfTypingANumber: Bool = false
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBAction func appendDigit(sender: UIButton) {
+       let digit = sender.currentTitle!
+        if userlslnTheMiddleOfTypingANumber {
+            display.text = display.text! + digit
+        } else {
+            display.text = digit
+            userlslnTheMiddleOfTypingANumber = true
+        
+        }
+       
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func operate(sender: UIButton) {
+        let opration = sender.currentTitle!
+        if userlslnTheMiddleOfTypingANumber {
+            enter()
+        }
+        switch opration{
+            case "✖️"：
+            if operandStack.count >= 2 {
+               dispalyvalue = operandStack.removeLast() * operandStack.removeLast()
+                enter()
+//            case "➗"：
+//            case "➕"：
+//            case "➖"：
+            default: break
+        }
     }
-
-
+    
+    var operandStack:Array<Double> = Array<Double>()
+    @IBAction func enter() {
+        userlslnTheMiddleOfTypingANumber = false
+        operandStack.append(displayvalue)
+        println("operands = \(operandStack)")
+    }
+    var displayvalue:Double{
+        get{
+            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+        }
+        set{
+          display.text = "\(newValue)"
+            userlslnTheMiddleOfTypingANumber = false
+        }
+    }
 }
 

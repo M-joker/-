@@ -77,9 +77,8 @@
 		758BAD041C018B590059A53D /* calculator */ = {
 			isa = PBXGroup;
 			children = (
-				758BAD071C018B590059A53D /* AppDelegate.swift */,
-				758BAD091C018B590059A53D /* ViewController.swift */,
 				758BAD0B1C018B590059A53D /* Main.storyboard */,
+				758BAD091C018B590059A53D /* ViewController.swift */,
 				758BAD0E1C018B590059A53D /* Images.xcassets */,
 				758BAD101C018B590059A53D /* LaunchScreen.xib */,
 				758BAD051C018B590059A53D /* Supporting Files */,
@@ -91,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				758BAD061C018B590059A53D /* Info.plist */,
+				758BAD071C018B590059A53D /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -411,6 +411,7 @@
 				758BAD231C018B5A0059A53D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		758BAD241C018B5A0059A53D /* Build configuration list for PBXNativeTarget "calculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				758BAD261C018B5A0059A53D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
