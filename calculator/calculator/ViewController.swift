@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
-    
     var userlslnTheMiddleOfTypingANumber: Bool = false
 
     @IBAction func appendDigit(sender: UIButton) {
@@ -31,23 +30,28 @@ class ViewController: UIViewController {
             enter()
         }
         switch opration{
-            case "✖️"：
+            case "✖️":
             if operandStack.count >= 2 {
-               dispalyvalue = operandStack.removeLast() * operandStack.removeLast()
+               displayvalue = operandStack.removeLast() * operandStack.removeLast()
                 enter()
+          }
 //            case "➗"：
 //            case "➕"：
 //            case "➖"：
             default: break
         }
     }
-    
-    var operandStack:Array<Double> = Array<Double>()
-    @IBAction func enter() {
+  
+  
+      
+      @IBAction func enter() {
         userlslnTheMiddleOfTypingANumber = false
         operandStack.append(displayvalue)
         println("operands = \(operandStack)")
-    }
+      }
+
+    var operandStack:Array<Double> = Array<Double>()
+    
     var displayvalue:Double{
         get{
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
