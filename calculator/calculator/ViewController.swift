@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController
+{
     @IBOutlet weak var display: UILabel!
-    var userlslnTheMiddleOfTypingANumber: Bool = false
+    var userlslnTheMiddleOfTypingANumber = false
 
     @IBAction func appendDigit(sender: UIButton) {
        let digit = sender.currentTitle!
@@ -25,41 +25,40 @@ class ViewController: UIViewController {
        
     }
     @IBAction func operate(sender: UIButton) {
-        let opration = sender.currentTitle!
+        let operation = sender.currentTitle!
         if userlslnTheMiddleOfTypingANumber {
             enter()
         }
-        switch opration{
-            case "✖️":
-            if operandStack.count >= 2 {
-               displayvalue = operandStack.removeLast() * operandStack.removeLast()
-                enter()
-          }
-//            case "➗"：
-//            case "➕"：
-//            case "➖"：
+        switch operation {
+            case"*":
+                if operandStack.count >= 2 {
+                 displayvalue = operandStack.removeLast() * operandStack.removeLast()
+                    enter()
+            }
+//            case"/":
+//            case"+":
+//            case"-":
             default: break
+
+
         }
     }
-  
-  
-      
-      @IBAction func enter() {
+    
+     var operandStack = Array<Double>()
+    
+    @IBAction func enter() {
         userlslnTheMiddleOfTypingANumber = false
         operandStack.append(displayvalue)
-        println("operands = \(operandStack)")
+        println("operandStack = \(operandStack)")
       }
 
-    var operandStack:Array<Double> = Array<Double>()
-    
-    var displayvalue:Double{
-        get{
+    var displayvalue: Double {
+        get {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
-        set{
-          display.text = "\(newValue)"
+        set {
+            display.text = "\(newValue)"
             userlslnTheMiddleOfTypingANumber = false
         }
     }
 }
-
