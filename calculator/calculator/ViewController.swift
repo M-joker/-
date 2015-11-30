@@ -30,29 +30,33 @@ class ViewController: UIViewController
             enter()
         }
         switch operation {
-            case"*":
-                if operandStack.count >= 2 {
-                 displayvalue = operandStack.removeLast() * operandStack.removeLast()
-                    enter()
-            }
-//            case"/":
-//            case"+":
-//            case"-":
-            default: break
-
-
+        case "*": performOpeartion(multiply)
+//        case "/":
+//        case "+":
+//        case "-":
+        default: break
         }
     }
     
-     var operandStack = Array<Double>()
-    
+    func performOpeartion(operation: (Double,Double) ->Double) {
+        if operandStack.count >= 2{
+            displayvalue = operation(operandStack.removeLast(), operandStack.removeLast())
+            enter()
+        }
+
+    }
+    func multiply(op1: Double,op2: Double) ->Double {
+        return op1 * op2
+    }
+    var operandStack = Array<Double>()
+
     @IBAction func enter() {
         userlslnTheMiddleOfTypingANumber = false
         operandStack.append(displayvalue)
         println("operandStack = \(operandStack)")
-      }
-
-    var displayvalue: Double {
+    }
+    
+        var displayvalue: Double {
         get {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
@@ -61,4 +65,5 @@ class ViewController: UIViewController
             userlslnTheMiddleOfTypingANumber = false
         }
     }
+
 }
