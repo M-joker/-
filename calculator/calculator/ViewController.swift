@@ -30,17 +30,17 @@ class ViewController: UIViewController
             enter()
         }
         switch operation {
-        case "*": performOpeartion(multiply)
-//        case "/":
-//        case "+":
-//        case "-":
+        case "*": performOperation { $0 * $1 }
+        case "/": performOperation { $0 / $1 }
+        case "+": performOperation { $0 + $1 }
+        case "-": performOperation { $0 - $1 }
         default: break
         }
     }
     
-    func performOpeartion(operation: (Double,Double) ->Double) {
+    func performOperation(operation: (Double,Double) ->Double) {
         if operandStack.count >= 2{
-            displayvalue = operation(operandStack.removeLast(), operandStack.removeLast())
+            displayValue = operandStack.removeLast() * operandStack.removeLast()
             enter()
         }
 
@@ -52,15 +52,14 @@ class ViewController: UIViewController
 
     @IBAction func enter() {
         userlslnTheMiddleOfTypingANumber = false
-        operandStack.append(displayvalue)
-        println("operandStack = \(operandStack)")
+        operandStack.append(displayValue)
+        println(" operandStack = \( operandStack)")
     }
-    
-        var displayvalue: Double {
-        get {
+    var displayValue:Double {
+        get{
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
-        set {
+        set{
             display.text = "\(newValue)"
             userlslnTheMiddleOfTypingANumber = false
         }
