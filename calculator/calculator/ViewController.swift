@@ -30,7 +30,7 @@ class ViewController: UIViewController
             enter()
         }
         switch operation {
-        case "*": performOperation { $0 * $1 }
+        case "x": performOperation { $0 * $1 }
         case "÷": performOperation { $1 / $0 }
         case "+": performOperation { $0 + $1 }
         case "-": performOperation { $1 - $0 }
