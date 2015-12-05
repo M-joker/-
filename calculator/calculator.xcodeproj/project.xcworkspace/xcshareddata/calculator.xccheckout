@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>30DBBADC-2B08-4D97-AD03-7EDDCFCB0DA0</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>calculator</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8D5DD3861D05C322BE14B420496C4D787286C00F</key>
 		<string>github.com:M-joker/-.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>calculator/calculator.xcodeproj/project.xcworkspace</string>
+	<string>calculator/calculator.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8D5DD3861D05C322BE14B420496C4D787286C00F</key>
