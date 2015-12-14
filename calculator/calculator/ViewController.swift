@@ -29,11 +29,16 @@ class ViewController: UIViewController
         if userlslnTheMiddleOfTypingANumber {
             enter()
         }
-        if let operation = sender.currentAttributedTitle {
+        if let operation = sender.currentTitle{
+            if let result = brain.performOperation(operation)
+            {
+                displayValue = result
+            } else {
+                displayValue = 0
+            }
         }
+     }
 
-        }
-    }
 
 
     @IBAction func enter() {
@@ -45,13 +50,14 @@ class ViewController: UIViewController
         }
 }
     var displayValue:Double {
-        get{
+        get {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
-        set{
+        set {
             display.text = "\(newValue)"
             userlslnTheMiddleOfTypingANumber = false
         }
     }
 
 
+}
